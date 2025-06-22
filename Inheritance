@@ -1,0 +1,53 @@
+class Main {
+    public static void main(String[] args) {
+        Animal lion = new Animal(4, 5.5, "Lion", true, 0);
+        System.out.println("Animal age: " + lion.age);
+
+        Parrot parrot = new Parrot(2.0, "Green Parrot", true, 0);
+        parrot.fly();
+        parrot.doesHaveBeak();
+    }
+}
+
+class Animal {
+    int legs;
+    double age;
+    String name;
+    boolean isAlive;
+    float arms;
+    int wings;
+    int eyes;
+    boolean beak;
+
+    public Animal(int legs, double age, String name, boolean isAlive, float arms) {
+        this.legs = legs;
+        this.age = age;
+        this.name = name;
+        this.isAlive = isAlive;
+        this.arms = arms;
+    }
+}
+
+class Parrot extends Animal {
+    public Parrot(double age, String name, boolean isAlive, float arms) {
+        super(2, age, name, isAlive, arms); 
+        this.wings = 2;
+        this.eyes = 2;
+        this.beak = true;
+        System.out.println(beak);
+    }
+    void fly () {
+        System.out.println("The parrot flew with its wings that is the number " + this.wings);
+    }
+    void doesHaveBeak () {
+        System.out.println(beak + ", the parrot has a beak");
+    }
+}
+
+
+
+
+
+
+
+
