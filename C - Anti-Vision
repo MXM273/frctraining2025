@@ -1,0 +1,24 @@
+import java.util.Scanner;  // Import the Scanner class
+
+public class Main {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);  // Create a Scanner object
+    System.out.println("Enter numbers");
+
+    long a = scanner.nextLong();  // Read user input
+    long b = scanner.nextLong();
+    long c = scanner.nextLong();
+    long d = scanner.nextLong();
+
+    long ans = b - a + 1;
+    for (long i = a; i <= b; i++) {
+      if (i % c == 0 || i % d == 0) {
+        ans--;
+      }
+    }
+
+    System.out.println(ans);
+
+    scanner.close();
+  }
+}
