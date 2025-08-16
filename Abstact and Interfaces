@@ -1,0 +1,90 @@
+public class Main {
+    public static void main(String[] args) {
+
+        Book book = new Book("djadnsadn", "me", 367, "f74gf92udhf");
+        System.out.println(book.getDetails());
+
+        book.borrowItem();
+        book.returnItem();
+
+        Magazine magazine = new Magazine("djadnsadn", "me", 36, 45);
+        System.out.println(magazine.getDetails());
+
+    }
+}
+
+
+abstract class LibraryItem {
+    String title;
+    String author;
+    int ID;
+
+    public LibraryItem(String title, String author, int ID) {
+        this.title = title;
+        this.author = author;
+        this.ID = ID;
+    }
+
+    String getTitle() {
+        return title;
+    }
+
+    String getAuthor() {
+        return author;
+    }
+
+    int getID() {
+        return ID;
+    }
+
+    abstract String getDetails(); // Changed to return String instead of void
+}
+
+
+interface Borrowable {
+    void borrowItem();
+    void returnItem();
+}
+
+
+class Book extends LibraryItem implements Borrowable {
+    private String ISBN;
+
+    public Book(String title, String author, int ID, String ISBN) {
+        super(title, author, ID);
+        this.ISBN = ISBN;
+    }
+
+    @Override
+    String getDetails() {
+        return "Book - ISBN: " + ISBN + ", Title: " + title +
+                ", Author: " + author + ", ID: " + ID;
+    }
+
+    @Override
+    public void borrowItem() {
+        System.out.println("The book has been borrowed");
+    }
+
+    @Override
+    public void returnItem() {
+        System.out.println("The book has been returned");
+    }
+}
+
+
+class Magazine extends LibraryItem {
+    private int issueNumber;
+
+    public Magazine(String title, String author, int ID, int issueNumber) {
+        super(title, author, ID);
+        this.issueNumber = issueNumber;
+    }
+
+    @Override
+    String getDetails() {
+        return "Magazine - Title: " + title +
+                ", Author: " + author + ", ID: " + ID +
+                ", Issue Number: " + issueNumber;
+    }
+}
